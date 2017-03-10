@@ -10,7 +10,8 @@ import android.util.Log;
  */
 public class Base_datos extends SQLiteOpenHelper
 {
-    public static final String NOMBREBD = "curso_android.sqlite";
+    public static final String NOMBREBD = "curso_android.sqlite"; //.sqlite or .db
+
     //Versión de la base de datos
     public Base_datos(Context context, int VERSION)
     {

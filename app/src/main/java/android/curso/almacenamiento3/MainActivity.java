@@ -95,9 +95,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void agregarFilas(String prod,String precio1,String id)
     {
+        //Crear una nueva fila
         fila=new TableRow(this);
+        //Aplicar el tamanio a la nueva fila
         fila.setLayoutParams(layoutFila);
 
+        //Creamos las celdas
         TextView nombre_producto=new TextView(this);
         TextView precio_producto=new TextView(this);
 
@@ -132,9 +135,12 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(context,"Actualizando "+view.getId(),Toast.LENGTH_SHORT).show();
                     ContentValues values = new ContentValues();
                     values.put("precio","6.00");
-                    String[] args=new String[]{""+view.getId()};
-                    db.update("Productos",values, "id LIKE ?", args);
-                    db.update("Producots",values,"id LIKE "+view.getId(),null);
+
+                    //Utilizando comodin
+                    /*String[] args=new String[]{""+view.getId()};
+                    db.update("Productos",values, "id LIKE ?", args);*/
+
+                    db.update("Productos",values,"id LIKE "+view.getId(),null);
                     reiniciarActividad();
 
 
@@ -149,8 +155,12 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(context,"Eliminando "+view.getId(),Toast.LENGTH_SHORT).show();
-                    String[] args=new String[]{""+view.getId()};
-                    db.delete("Productos", "id LIKE ?", args);
+
+                    //Utilizando comodin
+                    /*String[] args=new String[]{""+view.getId()};
+                    db.delete("Productos", "id LIKE ?", args);*/
+
+                    db.delete("Productos", "id LIKE "+view.getId(), null);
                     reiniciarActividad();
                 }
             });
